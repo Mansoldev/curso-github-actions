@@ -1,5 +1,6 @@
 name: 01 - First WorkFlow.
-on: [push, workflow_dispatch]
+#on: [push, workflow_dispatch]
+on: workflow_dispatch
 
 jobs: 
     job1:
