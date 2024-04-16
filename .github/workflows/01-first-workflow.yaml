@@ -13,9 +13,9 @@ jobs:
         name: echo-goodbye
         runs-on: ubuntu-latest
         steps:
-            - name: Paso fallido
+            - name: Paso correcto
               run: |
-                echo "Fallo"
-                exit 1
+                echo "Correcto"
+                exit 0
             - name: Decir adiós
               run: echo "¡Adiós!"
