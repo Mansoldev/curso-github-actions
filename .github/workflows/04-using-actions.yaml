@@ -17,3 +17,7 @@ jobs:
         run: |
             cd my-app
             npm ci
+      - name: Run Unit Tests
+        run: |
+            cd my-app
+            npm run test
