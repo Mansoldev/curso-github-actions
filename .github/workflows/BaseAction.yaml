@@ -1,0 +1,29 @@
+name: NOMBRE
+run-name: My custom workflow run name
+# env:
+#   MY_WORKFLOW_VAR: 'workflow'
+on: 
+  workflow_dispatch: #EVENTO
+    inputs:
+      debug:
+        description: 'Debug mode'
+        type: boolean           
+        default: false
+
+jobs:
+  # env:
+  #   MY_JOB_VAR: 'workflow'
+  job1Name:
+    runs-on: $RUNNER #ubuntu-latest
+    #environment: pro
+    steps: 
+      - name: $STEP_NAME ${{inputs.debug}}
+        #uses: actions/checkout@v4
+        #if: github.event_name == 'push' && github.ref_name == 'main'
+        run: |
+            cd my-app
+            npm run test
+  # job2Name:
+  #   runs-on: $runner
+  #   env:
+  #     MY_OVERWRITTEN_VAR: Step
