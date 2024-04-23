@@ -24,28 +24,24 @@ jobs:
         run: exit 1
   deploy-nonprod: 
     needs: [lint-build, unit-tests]
-    if: success()
     runs-on: ubuntu-latest
     steps: 
       - name: Deploying to nonprod
         run: echo "Deploying to nonprod..."
   e2e-tests: 
     needs: deploy-nonprod
-    if: success()
     runs-on: ubuntu-latest
     steps: 
         - name: Running E2E tests
           run: echo "Running E2E tests"
   load-tests: 
     needs: deploy-nonprod
-    if: success()
     runs-on: ubuntu-latest
     steps: 
         - name: Running load tests
           run: echo "Running load tests"
   deploy-prod: 
     needs: [e2e-tests, load-tests]
-    if: success()
     runs-on: ubuntu-latest
     steps: 
         - name: Deploying to prod
