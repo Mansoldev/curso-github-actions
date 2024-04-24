@@ -35,7 +35,7 @@ jobs:
                 path: my-app/node-modules
                 key: deps-node-modules-${{ hashFiles('my-app/package-lock.json') }}
             - name: Install dependencies
-              if: ${{steps.cache.outputs.cache-hit != 'true'}}
+              if: ${{steps.cache.outputs.cache-hit == 'true'}}
               run: npm ci
             - name: Testing
               run: npm run test
