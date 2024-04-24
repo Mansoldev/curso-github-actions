@@ -1,4 +1,4 @@
-name: 11 - Controlling the Execution Flow
+name: 12 - Working with Inputs
 on: 
   workflow_dispatch:
     inputs:
