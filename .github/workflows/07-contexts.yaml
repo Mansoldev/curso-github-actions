@@ -1,9 +1,12 @@
 name: 07 - Contexts
-run-name: "My custom workflow run name - " #No se puede acceder a runner aqui${{ runner.os }}
+run-name: "07 - Contexts | DEBUG - ${{ inputs.debug }}" #No se puede acceder a runner aqui${{ runner.os }}
 on:
-    - push
-    - workflow_dispatch 
-    
+    workflow_dispatch:
+        inputs:
+            debug:
+                description: 'debug'
+                type: boolean           
+                default: false
 
 jobs:
     echo-data:
