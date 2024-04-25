@@ -1,8 +1,8 @@
 name: 05 - Event Filters
 on: 
     push:
-        branches: #main [main, otra]
-            - main
+        branches: #main [main, develop]
+            - develop
 
 jobs:
   echo:
