@@ -1,5 +1,8 @@
 name: 07 - Contexts
 run-name: "07 - Contexts | DEBUG - ${{ inputs.debug }}" #No se puede acceder a runner aqui${{ runner.os }}
+env:
+    MY_WORKFLOW_VAR: 'workflow'
+    MY_OVERWRITTEN_VAR: 'workflow'
 on:
     workflow_dispatch:
         inputs:
@@ -10,6 +13,9 @@ on:
 
 jobs:
     echo-data:
+        env:
+            MY_JOB_VAR: 'job'
+            MY_OVERWRITTEN_VAR: 'job'
         runs-on: ubuntu-latest
         steps:
             - name: Show Info
@@ -23,3 +29,14 @@ jobs:
                 echo "Número de ejecución: ${{github.run_number}}"
             - name: Retrieve Variable
               run: echo ${{vars.MY_REPOSITORY_VAR}}
+            - name: Print Env Variables
+              env:
+                MY_JOB_VAR: 'step'
+                MY_OVERWRITTEN_VAR: 'step'
+              run: |
+                echo "Workflow env: ${{env.MY_WORKFLOW_VAR}}"
+                echo "Overwritten env: ${{env.MY_OVERWRITTEN_VAR}}"
+            - name: Print Env Variables by def
+              run: |
+                echo "Workflow env: ${{env.MY_WORKFLOW_VAR}}"
+                echo "Overwritten env: ${{env.MY_OVERWRITTEN_VAR}}"
