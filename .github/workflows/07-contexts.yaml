@@ -1,4 +1,5 @@
 name: 07 - Contexts
+run-name: "My custom workflow run name - " #No se puede acceder a runner aqui${{ runner.os }}
 on:
     - push
     - workflow_dispatch 
@@ -18,4 +19,4 @@ jobs:
                 echo "ID de ejecución: ${{github.run_id}}"
                 echo "Número de ejecución: ${{github.run_number}}"
             - name: Retrieve Variable
-              run: ${{vars.MY_REPOSITORY_VAR}}
+              run: echo ${{vars.MY_REPOSITORY_VAR}}
