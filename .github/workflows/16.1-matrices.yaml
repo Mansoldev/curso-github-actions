@@ -24,4 +24,6 @@ jobs:
               with:
                 node-version: ${{matrix.node }}
             - name: Perform
-              run: echo "Running tests on OS and NodeJS"
+              run: | 
+                echo "Running tests on OS and NodeJS"
+                exit 1
