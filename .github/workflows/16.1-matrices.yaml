@@ -7,12 +7,20 @@ jobs:
         name: ${{ matrix.os }}-${{matrix.node }}
         strategy:
             matrix:
-                node: [18.x, 20.x, 21.x]
+                node: [18.x, 20.x]
                 os:
                     - ubuntu-latest
                     - windows-latest
+                include:
+                    - os: ubuntu-latest
+                      tag: linux
+                    - os: ubuntu-latest
+                      node-version: 21.x
         runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/setup-node@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
               with:
                 node-version: ${{matrix.node }}
+            - name: Perform
+              run: echo "Running tests on OS and NodeJS"
