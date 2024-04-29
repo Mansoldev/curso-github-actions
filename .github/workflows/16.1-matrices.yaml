@@ -13,9 +13,10 @@ jobs:
                     - windows-latest
                 include:
                     - os: ubuntu-latest
-                      tag: linux
-                    - os: ubuntu-latest
                       node-version: 21.x
+                      tag: experimental
+                    - os: ubuntu-latest
+                      node-version: 16.x
         runs-on: ${{ matrix.os }}
         steps:
             - name: Setup node
