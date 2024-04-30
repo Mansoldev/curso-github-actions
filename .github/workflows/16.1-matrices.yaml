@@ -33,6 +33,7 @@ jobs:
               run: echo "Uploading test results"
     include-example:
         runs-on: ubuntu-latest
+        name: ${{ matrix.color }}-${{matrix.shape }}-${{matrix.size }}
         strategy:
             matrix:
                 color: [red, green]
@@ -43,5 +44,6 @@ jobs:
                     shape: triangle
         steps:
             - name: Dummy step
-              run: echo "color: ${{matrix.color}} - shape: ${{matrix.shape}} - shape: ${{matrix.size}}"
+              run: | 
+                echo "color: ${{matrix.color}} - shape: ${{matrix.shape}} - shape: ${{matrix.size}}"
                 
