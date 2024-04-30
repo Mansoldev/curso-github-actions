@@ -1,0 +1,20 @@
+name: 17 - Working with Environments
+run-name: 17 - Working with Environments | ${{github.events.inputs.target-env}}
+on:
+    workflow_dispatch: 
+        inputs:
+            target-env:
+                type: environment
+                default: pre
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        env:
+            MY_ENV_VALUE: ${{ github.event.inputs.target-env }}
+        steps:
+            - name: Echo vars
+              run: | 
+                echo "Env variable: ${{ env.my-env-value }}"
+              env: 
+                my-env-value: ${{ env.MY_ENV_VALUE || 'default value' }}
