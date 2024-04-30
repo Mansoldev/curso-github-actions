@@ -19,7 +19,7 @@ jobs:
                     - os: ubuntu-latest
                       node-version: 16.x
                 exclude:
-                    - so: windows-latest
+                    - os: windows-latest
                       node-version: 18.x
         runs-on: ${{ matrix.os }}
         steps:
