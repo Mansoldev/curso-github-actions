@@ -34,24 +34,5 @@ jobs:
               #exit 1
             - name: Upload test results
               run: echo "Uploading test results"
-    include-example:
-        runs-on: ubuntu-latest
-        name: ${{ matrix.color }}-${{matrix.shape }}-${{matrix.size }}
-        strategy:
-            matrix:
-                color: [red, green]
-                shape: [circle, square]
-                size: [small, large]
-                include:
-                  - color: red
-                    opacity: 75
-                  - shape: circle
-                    opacity: 100
-                  - color: red
-                    shape: triangle
-                  - opacity: 50
-        steps:
-            - name: Dummy step
-              run: | 
-                echo "color: ${{matrix.color}} - shape: ${{matrix.shape}} - size: ${{matrix.size}} - opacity: ${{matrix.opacity}}"
+    
                 
