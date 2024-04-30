@@ -1,0 +1,21 @@
+name: 19 - 1 - Custom Actions - Composite
+run-name: 19 - 1 - Custom Actions - Composite | env - ${{github.events.inputs.target-env}}
+on: 
+    workflow_dispatch:
+        inputs:
+            target-env:
+                type: choice
+                options:
+                    - dev
+                    - prod
+env:
+    working-directory: 19-custom-actions/react-app
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ${{env.working-directory}}
+        steps:
+            - name: 
