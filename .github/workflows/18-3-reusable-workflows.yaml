@@ -1,0 +1,13 @@
+name: 18 - 3 - Reusable Workflows
+on:
+    workflow_dispatch: 
+
+jobs:
+    deploy:
+        uses: ./.github/workflows/18-1-reusable-workflows.yaml
+        with:
+            target-directory: a
+    e2e-tests:
+        runs-on: ubuntu-latest
+        needs: deploy
+        uses: //.github/workflows/e2e.yaml@main
