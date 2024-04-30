@@ -18,6 +18,8 @@ jobs:
                       tag: experimental
                     - os: ubuntu-latest
                       node-version: 16.x
+                exclude:
+                    - tag: experimental
         runs-on: ${{ matrix.os }}
         steps:
             - name: Setup node
